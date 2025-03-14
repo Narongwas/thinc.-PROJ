@@ -128,7 +128,7 @@ img.path{
   font-size: 56px;
 }
 
-.col{
+#col{
   width: 1329px;
   height: 564px;
   padding-top: 80px;
@@ -137,5 +137,30 @@ img.path{
 
 }
 
+#innercol{
+  padding-top: 200px;
+  padding-bottom: 56px;
+  padding-left: 96px;
+  gap: 80px;
+}
 
+.footerButton{
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 50px;
+  width: 163px;
+  height: 56px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+}
 
+#footerh4{
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 180%;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
