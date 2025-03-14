@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
 body{
   margin: 0;
@@ -47,7 +47,7 @@ body{
   justify-content: space-between;
   display: flex;
   text-align: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .Right-header{
@@ -84,20 +84,29 @@ body{
 .path{
   font-family: 'Mitr', sans-serif;
   cursor: pointer;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 30px;
+  margin-right: 30px;
   font-size: small;
   display: inline-block;
 }
-
 
 #Home{
   font-size: 32px;
 }
 
-img.path{
+#image{
   width: 32px;
   height: 32px;
+}
+
+#AboutMe{
+  font-family: "Noto Sans Thai", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 180%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #0F172A;
 }
 
 .Main{
@@ -106,8 +115,8 @@ img.path{
   gap: 80px;
   padding-top: 4%;
   padding-bottom: 4%;
-  padding-left: 18.75%;
-  padding-right: 18.75%;
+  padding-left: 14%;
+  padding-right: 14%;
   text-align: center;
 }
 

@@ -9,8 +9,8 @@ function Header(){
     return (<header className="App-header">
         <div className="left-Header">
               <a className="path" id="Home"><b>Name</b></a>
-              <a className="path" onClick={onClick}><img src={logo} alt="toMainMenu"></img></a>
-              <a className="path">เกี่ยวกับเรา</a>
+              <a className="path" onClick={onClick} id="image"><img src={logo} alt="toMainMenu"></img></a>
+              <a className="path" id="AboutMe">เกี่ยวกับเรา</a>
           </div>
         <div className="Right-header">
               <button id="Login" className="headerButton">Log In</button>
