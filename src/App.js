@@ -17,7 +17,7 @@ function App() {
       <section id = "Description">
         <h5 id = "DescriptionName" className="Des">Name</h5>
         <hr></hr>
-        <m className="Des" id="ILEA">I LEA 51</m>
+        <m className="Des" id="ILEA">I LEA 51.</m>
       </section>
     </div>
   );

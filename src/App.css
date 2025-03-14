@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -48,9 +56,12 @@
 }
 
 .headerButton{
+  
   cursor: pointer;
-  margin-left: 8px;
-  margin-right: 8px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #Login{
@@ -187,8 +198,12 @@ img.path{
   padding-top: 24px;
   padding-bottom: 24px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 100;
   line-height: 140%;
   letter-spacing: 0%;
   color: #ffffff;
+}
+
+hr{
+  margin-bottom: 25px;
 }
