@@ -14,6 +14,11 @@ function App() {
         </h2>
       </div>
       <Footer/>
+      <section id = "Description">
+        <h5 id = "DescriptionName" className="Des">Name</h5>
+        <hr></hr>
+        <m className="Des" id="ILEA">I LEA 51</m>
+      </section>
     </div>
   );
 }

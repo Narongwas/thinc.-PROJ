@@ -9,8 +9,7 @@ function Footer(){
                     <button className="footerButton">JOIN NOW</button>
                 </div>
             </div>
-        </section>
-    )
+        </section> )
 }
 
 export default Footer;
