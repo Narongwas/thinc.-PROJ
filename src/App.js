@@ -1,26 +1,17 @@
 import './App.css';
-import Header  from './Components/header';
-import Main  from './Components/main';
-import Footer from './Components/footer';
-import CreatePost from './pages/CreatePost';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import MainPage from './Pages/MainPage.js'; 
+import PostPage from './Pages/PostPage.js'; 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main />
-      <div id="Main2">
-        <h2 className="h2">
-        MORE THAN 6 PEOPLE HAVE VISITED!<br></br>
-        (OUR TEAM OFC)
-        </h2>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<MainPage />} /> 
+          <Route path="/post" element={<PostPage />} /> 
+        </Routes>
       </div>
-      <Footer/>
-      <section id = "Description">
-        <h5 id = "DescriptionName" className="Des">Name</h5>
-        <hr></hr>
-        <m className="Des" id="ILEA">I LEA 51.</m>
-      </section>
-    </div>
+    </Router>
   );
 }
 
