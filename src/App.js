@@ -2,7 +2,7 @@ import './App.css';
 import Header  from './Components/header';
 import Main  from './Components/main';
 import Footer from './Components/footer';
-import CreatePost from './pages/CreatePost';
+//import CreatePost from './pages/CreatePost';
 function App() {
   return (
     <div className="App">
