@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Thai:wght@100..900&display=swap');
 .box{
     width: 1141px;
     height: 630px;
@@ -9,20 +10,25 @@
   }
   
   .display-name{
-    font-size: 20pt;
+    font-family: IBM Plex Sans;
+    font-size: 16pt;
     margin-left: 70px;
   }
   
   .name-input{
+    font-family: IBM Plex Sans;
     border-radius: 10px;
     border: none;
     outline: none;
-    font-size: 24pt;
+    font-size: 20pt;
+    font-weight: 500;
     padding-top: 1px;
+    padding-left: 12px;
     margin-left: 70px;
   }
   
   .btn{
+    font-family: IBM Plex Sans;
     font-size: 16pt;
     display: block;
     border: white;
@@ -33,21 +39,26 @@
     margin-left: auto;
     margin-right: auto;
     padding: 15px 13px 15px 13px;
+    cursor: pointer;
   }
   
   .thought{
-    font-size: 20pt;
+    font-family: IBM Plex Sans;
+    font-size: 16pt;
     margin-left: 70px;
   }
   
   .thought-input{
+    font-family: IBM Plex Sans;
     width: 1028px;
     height: 350px;
     border-radius: 10px;
     border: none;
     outline: none;
-    font-size: 24pt;
+    font-weight: 500;
+    font-size: 20pt;
     padding-top: 1px;
+    padding-left: 12px;
     margin-left: 70px;
     resize: none;
   }
