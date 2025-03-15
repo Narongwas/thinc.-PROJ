@@ -1,8 +1,8 @@
 import './App.css';
-import Header  from './header';
-import Main  from './main';
-import Footer from './footer';
-import CreatePost from './PostPage';
+import Header  from './Components/header';
+import Main  from './Components/main';
+import Footer from './Components/footer';
+import CreatePost from './Pages/PostPage';
 function App() {
   return (
     <div className="App">
