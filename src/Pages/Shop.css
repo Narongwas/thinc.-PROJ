@@ -1,0 +1,61 @@
+.item-frame{
+    width: 330px;
+    height: 210px;
+    background-color: #5236ff;
+    border-radius: 14px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.to-justify{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    gap: 50px;
+    justify-content: center;
+}
+
+.item-image{
+    width: 130px;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 24px;
+    display: block;
+}
+
+.item-name-desc{
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.price-group{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    gap: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.price{
+    margin-left: 0px;
+    width: 330px;
+}
+
+.money{
+    width: 112px;
+    height: 56px;
+    background-color: #879CFC;
+    border: none;
+    border-radius: 10px;
+    margin-left: auto;
+    font-size: 15pt;
+}
+
+.group{
+    padding-right: 40px;
+    text-align: right;
+}
