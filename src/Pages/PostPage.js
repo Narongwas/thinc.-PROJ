@@ -4,7 +4,7 @@ import api from '../Assets/axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
 
 
-function Post() {
+function PostPage() {
     function onClick() {
         window.location.href = "index.html";
     }
@@ -77,4 +77,4 @@ function Box(){
     );
 }
 
-export default Post;
+export default PostPage;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React  from "react";
 
 function Footer(){
@@ -6,7 +7,9 @@ function Footer(){
             <div id="col">
                 <div id="innercol">
                     <h4 id="footerh4">Don't hesitate – join us right now!</h4>
-                    <button className="footerButton">JOIN NOW</button>
+                    <Link to="/post">
+                        <button className="footerButton">JOIN NOW</button>
+                    </Link>
                 </div>
             </div>
         </section> )
