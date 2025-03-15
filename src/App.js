@@ -1,8 +1,7 @@
 import './App.css';
-import Header  from './Components/header';
-import Main  from './Components/main';
-import Footer from './Components/footer';
-import CreatePost from './pages/CreatePost';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import MainPage from './Pages/MainPage.js'; 
+import PostPage from './Pages/PostPage.js';
 function App() {
   return (
     <Router>
