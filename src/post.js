@@ -4,8 +4,8 @@ const postSchema = new mongoose.Schema({
     name: String,
     title: String,
     content: String,
-    vote: String,
-    date: String,
+    vote: Number,
+    date: { type: Date, default: Date.now },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 
   });
