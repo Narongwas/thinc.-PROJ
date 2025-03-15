@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
     name: String,
-    title: String,
     content: String,
     vote: Number,
     date: { type: Date, default: Date.now },

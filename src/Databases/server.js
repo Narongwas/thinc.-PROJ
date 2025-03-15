@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Post = require('./models/Post');
+const Post = require('./post_db');
 const cors = require('cors'); 
 
 const app = express();
@@ -10,9 +10,9 @@ app.use(express.json());
 mongoose.connect('mongodb://127.0.0.1:27017/myapp');
 
 app.post('/api/posts', (req, res) => {
-    const {title, body} = req.body;
+    const {name, body} = req.body;
     const newPost = new Post({
-        title,
+        name,
         body,
         vote: 0,
         date: Date.now()
