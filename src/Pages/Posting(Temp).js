@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import api from './axiosConfig.js';
-import Header from './header.js';
+import api from '../Assets/axiosConfig.js';
+import Header from '../Components/header.js';
 
 const CreatePost = () => {
     const [title, setTitle] = useState('');
