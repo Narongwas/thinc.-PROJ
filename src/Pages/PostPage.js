@@ -2,6 +2,7 @@ import './PostPage.css'
 import React, { useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
+import { useNavigate } from "react-router-dom";
 
 
 function PostPage() {
@@ -19,6 +20,7 @@ function PostPage() {
 function Box(){
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const navigate = useNavigate(); 
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
@@ -30,16 +32,17 @@ function Box(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        api.post('/posts', { name: title, content: body })
+        api.post('/posts', { name: title, content: body }) 
             .then(response => {
-                alert("Submitted!")
+                alert("Submitted!");
                 setTitle('');
                 setBody('');
+                navigate('/Home'); 
             })
             .catch(error => {
-                alert("Error!")
+                alert("Error!");
             });
-    };
+    };    
 
     return (
         <div>
