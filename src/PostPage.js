@@ -1,45 +1,78 @@
-import logo from "./home.png"
-import icon from "./icon.png"
 import './PostPage.css'
+import React, { useState } from 'react';
+import api from './axiosConfig.js';
+import Header from './header_if_sign.js';
 
 
-function Post(){
-    function onClick(){
+function Post() {
+    function onClick() {
         window.location.href = "index.html";
     }
-    return <div>
-        <header className="App-header">
-            <div className="left-Header">
-                  <a className="path" id="Home"><b>Name</b></a>
-                  <a className="path" onClick={onClick}><img src={logo} alt="toMainMenu"></img></a>
-                  <a className="path">เกี่ยวกับเรา</a>
-              </div>
-            <div className="Right-header">
-                  <img src={icon} alt="profile"></img><br />
-            </div>
-            </header>
+    return (
+        <div>
+            <Header />
             <Box />
-    </div>
+        </div>
+    );
 }
 
 function Box(){
-    return(
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const handleBodyChange = (e) => {
+        setBody(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        api.post('/posts', { title, body })
+            .then(response => {
+                alert("Submitted!")
+                setTitle('');
+                setBody('');
+            })
+            .catch(error => {
+                alert("Error!")
+            });
+    };
+
+    return (
         <div>
             <div className="box">
-                <br></br>
+                <br />
                 <p className="display-name">Your display name</p>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"></span>
-                    <input type="text" class="name-input" placeholder="alias" aria-label="Username" />
+                <div className="input-group mb-3">
+                    <span className="input-group-text" id="basic-addon1"></span>
+                    <input
+                        type="text"
+                        className="name-input"
+                        placeholder="Alias"
+                        value={title}
+                        onChange={handleTitleChange}
+                        aria-label="Username"
+                    />
                 </div>
+
                 <p className="thought">Your Thought</p>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"></span>
-                    <textarea type="text" class="thought-input" placeholder="Thought" aria-label="Username" />
+                <div className="input-group mb-3">
+                    <span className="input-group-text" id="basic-addon1"></span>
+                    <textarea
+                        type="text"
+                        className="thought-input"
+                        placeholder="Enter your thought"
+                        value={body} 
+                        onChange={handleBodyChange}
+                        aria-label="Thought"
+                    />
                 </div>
             </div>
-            <br></br>
-            <button class="btn">Post</button>
+            <br />
+            <button className="btn" onClick={handleSubmit}>Post</button>
         </div>
     );
 }
