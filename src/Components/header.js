@@ -1,4 +1,4 @@
-import logo from './home.png'
+import logo from '../Assets/home.png'
 import React  from 'react';
 
 function Header(){

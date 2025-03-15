@@ -1,7 +1,7 @@
 import './PostPage.css'
 import React, { useState } from 'react';
-import api from './axiosConfig.js';
-import Header from './header_if_sign.js';
+import api from '../Assets/axiosConfig.js';
+import Header from '../Components/header_if_sign.js';
 
 
 function Post() {
