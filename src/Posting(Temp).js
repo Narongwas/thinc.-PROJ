@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import api from './axiosConfig.js';
 import Header from './header.js';
-import './Posting.js';
 
 const CreatePost = () => {
     const [title, setTitle] = useState('');
