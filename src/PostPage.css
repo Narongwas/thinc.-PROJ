@@ -1,0 +1,54 @@
+.box{
+    width: 1141px;
+    height: 630px;
+    background-color:#D9D9D9;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 42px;
+  }
+  
+  .display-name{
+    font-size: 20pt;
+    margin-left: 70px;
+  }
+  
+  .name-input{
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 24pt;
+    padding-top: 1px;
+    margin-left: 70px;
+  }
+  
+  .btn{
+    font-size: 16pt;
+    display: block;
+    border: white;
+    background: #F8505E;
+    border-radius: 10px;
+    width: 375px;
+    height: 43px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 13px 15px 13px;
+  }
+  
+  .thought{
+    font-size: 20pt;
+    margin-left: 70px;
+  }
+  
+  .thought-input{
+    width: 1028px;
+    height: 350px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 24pt;
+    padding-top: 1px;
+    margin-left: 70px;
+    resize: none;
+  }
+  
