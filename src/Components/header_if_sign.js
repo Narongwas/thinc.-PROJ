@@ -1,5 +1,6 @@
-import logo from './home.png'
+import logo from '../Assets/home.png'
 import React  from 'react';
+import icon from '../Assets/icon.png';
 
 function Header(){
 
