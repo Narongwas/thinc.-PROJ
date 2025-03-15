@@ -30,7 +30,7 @@ function Box(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        api.post('/posts', { title, body })
+        api.post('/posts', { name: title, content: body })
             .then(response => {
                 alert("Submitted!")
                 setTitle('');
