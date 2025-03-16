@@ -6,6 +6,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .to-justify{
@@ -26,9 +27,15 @@
     display: block;
 }
 
-.item-name-desc{
+.item-desc{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.item-name{
     margin-left: 10px;
     margin-top: 0px;
+    
 }
 
 .price-group{
@@ -45,17 +52,27 @@
     width: 330px;
 }
 
-.money{
+.balance{
     width: 112px;
     height: 56px;
-    background-color: #879CFC;
+    background-color: hsl(229, 95%, 76%);
     border: none;
     border-radius: 10px;
-    margin-left: auto;
     font-size: 15pt;
 }
 
 .group{
-    padding-right: 40px;
-    text-align: right;
+    gap: 10px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center
 }
+
+.shop-title{
+    padding-left: 50px;
+    font-size: 30pt;
+    padding-right: 700px;
+}
+
+
