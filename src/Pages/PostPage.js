@@ -44,37 +44,37 @@ function Box(){
     };    
 
     return (
-        <div>
+        <div className="full-screen-page">
             <div className="box">
-                <br />
-                <p className="display-name">Your display name</p>
-                <div className="input-group mb-3">
-                    <span className="input-group-text" id="basic-addon1"></span>
-                    <input
-                        type="text"
-                        className="name-input"
-                        placeholder="Alias"
-                        value={title}
-                        onChange={handleTitleChange}
-                        aria-label="Username"
-                    />
-                </div>
+                <div className="form-section">
+                    <p className="display-name">Your display name</p>
+                    <div className="input-group">
+                        <input
+                            type="text"
+                            className="name-input"
+                            placeholder="Alias"
+                            value={title}
+                            onChange={handleTitleChange}
+                            aria-label="Username"
+                        />
+                    </div>
 
-                <p className="thought">Your Thought</p>
-                <div className="input-group mb-3">
-                    <span className="input-group-text" id="basic-addon1"></span>
-                    <textarea
-                        type="text"
-                        className="thought-input"
-                        placeholder="Enter your thought"
-                        value={body} 
-                        onChange={handleBodyChange}
-                        aria-label="Thought"
-                    />
+                    <p className="thought">Your Thought</p>
+                    <div className="input-group">
+                        <textarea
+                            className="thought-input"
+                            placeholder="Enter your thought"
+                            value={body}
+                            onChange={handleBodyChange}
+                            aria-label="Thought"
+                        />
+                    </div>
+
+                    <div className="submit-btn-container">
+                        <button className="btn" onClick={handleSubmit}>Post</button>
+                    </div>
                 </div>
             </div>
-            <br />
-            <button className="btn" onClick={handleSubmit}>Post</button>
         </div>
     );
 }

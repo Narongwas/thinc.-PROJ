@@ -6,8 +6,9 @@
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -5px;
+    margin-bottom: 5px;
     border-radius: 42px;
+    padding-top: 20px
   }
   
   .display-name{
