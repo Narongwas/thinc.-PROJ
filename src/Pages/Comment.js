@@ -1,14 +1,30 @@
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import Header from '../Components/header_if_sign.js';
 import Input from '../Components/input.js';
+import api from '../Assets/axiosConfig.js';
 import commenticon from '../Assets/commenticon.png';
 import './comment.css';
- function Comment(){
-    const [comment, setComment] = useState([]);
+import { useParams } from 'react-router-dom';
+
+function Comment(){
+    const [post, setPosts] = useState([]);
+    const [comment, setComments] = useState([]);
+    const {id} = useParams();
 
     function addComment(newComment) {
-       setComment([newComment,...comment]);
+       setComments([newComment,...comment]);
     }
+
+    useEffect(() => {
+        api.get(`/posts/${id}`)
+            .then(response => {
+                setPosts(response.data); 
+                setComments(response.data.comments || []);
+            })
+            .catch(error => {
+                alert("Error fetching posts");
+            });
+    }, [id]); 
 
     const commentElement = comment.map((comment) => {
         return (
@@ -23,13 +39,13 @@ import './comment.css';
         <div className="comment">
             <Header />
             <main>
-            <div className="post">
-                <p className='Head'>alias of poster</p>
-                <p className='postcontent'>content of post</p>
+            <div className="post_comment">
+                <p className='Head'>{post.name}</p>
+                <p className='postcontent'>{post.content}</p>
                 <div className='Numberofcomment'>
-                <div className='number'>
-                    <img src={commenticon} className='commenticon'/>
-                    <p><b>{commentElement.length}ง</b></p>
+                    <div className='number'>
+                        <img src={commenticon} className='commenticon'/>
+                        <p><b>{commentElement.length}</b></p>
                     </div>
                 </div>
             </div>

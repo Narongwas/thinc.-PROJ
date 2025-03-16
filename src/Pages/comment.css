@@ -55,7 +55,7 @@
     margin-top: 5px;
 }
 
-.post{
+.post_comment{
     width: 70%;
     height: auto;
     font-family: Roboto;
@@ -69,7 +69,6 @@
     justify-content: flex-start;
     margin-bottom: 20px;
     font-size: 20px;
-
 }
 
 .Head{
