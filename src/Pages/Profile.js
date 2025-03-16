@@ -1,3 +1,4 @@
+import './Profile.css';
 import React from "react";
 import Header from "../Components/header_if_sign";
 
@@ -5,7 +6,7 @@ function Profile(){
     return (
         <div>
             <Header/>
-            <main>
+            <main className="ProfileMain">
                 <section className="Profileicon">
                     <h2>LUCK</h2>
                     <img></img>
@@ -19,7 +20,18 @@ function Profile(){
                         <button>CHANGE PICTURE</button>
                     </div>
                     <hr/>
-                    
+                    <p>EXPLORE POST FOR MORE LUCK!</p>
+                    <button>VIEW OTHER</button>
+                    <div>
+                        <div>
+                            <p>POST HISTORY</p>
+                            <p>COMMENT HISTORY</p>
+                        </div>
+                        <div>
+                            <button>VIEW OTHER</button>
+                            <button>VIEW OTHER</button>
+                        </div>
+                    </div>
                 </section>
             </main>
         </div>

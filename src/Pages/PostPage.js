@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 
 function PostPage() {
-    function onClick() {
-        window.location.href = "index.html";
-    }
     return (
         <div>
             <Header />

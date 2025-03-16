@@ -2,6 +2,7 @@ import './Home.css';
 import React, { useEffect, useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const [posts, setPosts] = useState([]);
