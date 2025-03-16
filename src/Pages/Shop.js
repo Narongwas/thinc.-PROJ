@@ -5,9 +5,6 @@ import "./Shop.css"
 const money = 0;
 
 function Shop(){
-    function onClick() {
-        window.location.href = "index.html";
-    }
     //imgSrc ยังไม่มีรูปมาใส่
     return (
         <div>
