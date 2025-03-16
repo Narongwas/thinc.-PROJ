@@ -34,7 +34,6 @@ function Box(){
         e.preventDefault();
         api.post('/posts', { name: title, content: body }) 
             .then(response => {
-                alert("Submitted!");
                 setTitle('');
                 setBody('');
                 navigate('/Home'); 
