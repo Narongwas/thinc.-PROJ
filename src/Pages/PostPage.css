@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Thai:wght@100..900&display=swap');
 .box{
     width: 1141px;
-    height: 630px;
+    height: 525px;
     background-color:#D9D9D9;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -5px;
     border-radius: 42px;
   }
   
   .display-name{
     font-family: IBM Plex Sans;
     font-size: 16pt;
-    margin-left: 70px;
+    margin-left: 50px;
   }
   
   .name-input{
@@ -20,22 +21,27 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    font-size: 20pt;
+    font-size: 18pt;
     font-weight: 500;
     padding-top: 1px;
+    padding-bottom: 2px;
     padding-left: 12px;
-    margin-left: 70px;
+    margin-left: 50px;
   }
   
   .btn{
     font-family: IBM Plex Sans;
     font-size: 16pt;
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     border: white;
     background: #F8505E;
     border-radius: 10px;
     width: 375px;
-    height: 43px;
+    height: 50px;
     margin-left: auto;
     margin-right: auto;
     padding: 15px 13px 15px 13px;
@@ -45,21 +51,22 @@
   .thought{
     font-family: IBM Plex Sans;
     font-size: 16pt;
-    margin-left: 70px;
+    margin-left: 50px;
   }
   
   .thought-input{
     font-family: IBM Plex Sans;
     width: 1028px;
-    height: 350px;
+    height: 275px;
     border-radius: 10px;
     border: none;
     outline: none;
     font-weight: 500;
-    font-size: 20pt;
+    font-size: 18pt;
     padding-top: 1px;
+    padding-bottom: 2px;
     padding-left: 12px;
-    margin-left: 70px;
+    margin-left: 50px;
     resize: none;
   }
   
