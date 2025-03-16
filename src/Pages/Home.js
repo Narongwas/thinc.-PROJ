@@ -23,8 +23,12 @@ function Home() {
             <div className="posts-container">
                 {posts.map(post => (
                     <div className="post" key={post._id}>
-                        <h3>{post.name}</h3>
-                        <p>{post.content}</p>
+                        <div className="post-name">
+                            <h3>{post.name}</h3>
+                        </div>
+                        <div className="post-content">
+                            <p>{post.content}</p>
+                        </div>
                     </div>
                 ))}
             </div>
