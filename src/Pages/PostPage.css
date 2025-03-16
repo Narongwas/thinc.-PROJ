@@ -1,76 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Thai:wght@100..900&display=swap');
-
-.box {
-  width: 80%;
-  height: auto;
-  background-color: #D9D9D9;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  padding: 20px;
-  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
-}
-
-.full-screen-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
+.box{
+    width: 1141px;
+    height: 525px;
+    background-color:#D9D9D9;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    border-radius: 42px;
+    padding-top: 20px
+  }
   
-.display-name, .thought {
+  .display-name{
     font-family: IBM Plex Sans;
     font-size: 16pt;
-    margin-left: 70px;
-    margin-top: 20px;
-}
+    margin-left: 50px;
+  }
   
-.name-input, .thought-input {
-  font-family: IBM Plex Sans;
-  font-size: 14pt;
-  font-weight: 500;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  padding: 10px;
-  width: 90%; 
-  max-width: 600px; 
-  margin: 10px auto; 
-  display: block;
-}
+  .name-input{
+    font-family: IBM Plex Sans;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 18pt;
+    font-weight: 500;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-left: 12px;
+    margin-left: 50px;
+  }
   
-.thought-input {
-  height: 350px;
-  resize: none;
-}
-
-.input-group {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.btn {
-  font-family: IBM Plex Sans;
-  font-size: 16pt;
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  border: none;
-  background: #F8505E;
-  border-radius: 10px;
-  width: 375px;
-  height: 43px;
-  margin: 20px auto 0 auto; 
-  cursor: pointer;
-  padding: 0; 
-  text-align: center;
-}
+  .btn{
+    font-family: IBM Plex Sans;
+    font-size: 16pt;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: white;
+    background: #F8505E;
+    border-radius: 10px;
+    width: 375px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 13px 15px 13px;
+    cursor: pointer;
+  }
+  
+  .thought{
+    font-family: IBM Plex Sans;
+    font-size: 16pt;
+    margin-left: 50px;
+  }
+  
+  .thought-input{
+    font-family: IBM Plex Sans;
+    width: 1028px;
+    height: 275px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 18pt;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-left: 12px;
+    margin-left: 50px;
+    resize: none;
+  }
   
