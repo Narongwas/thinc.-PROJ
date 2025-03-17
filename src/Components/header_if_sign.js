@@ -18,6 +18,7 @@ function Header() {
     function handleProfileClick() {
         // Handle profile click
         console.log('Profile clicked');
+        window.location.href = "http://localhost:3000/profile"
     }
 
     function handleLogoutClick() {

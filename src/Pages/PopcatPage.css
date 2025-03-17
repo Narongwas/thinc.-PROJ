@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+body {
+    background-color: rgb(255, 255, 255); /* Set the background color to white */
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.popcat-page {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(255, 255, 255); /* Set the background color to white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    flex-direction: column; /* Stack elements vertically */
+    position: relative; /* For positioning the progress bar */
+}
+
+.popcat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 275px; /* Add padding to move the image down */
+}
+
+.popcat-image {
+    width: 300px; /* Set a fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the container */
+}
+
+.progress-bar-container {
+    width: 80%; /* Adjust width as needed */
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 20px auto; /* Center the progress bar */
+    height: 20px; /* Ensure height is set */
+    position: fixed; /* Fix the position at the bottom */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+.progress-bar {
+    height: 100%; /* Fill the container height */
+    background-color: #76c7c0;
+    border-radius: 5px;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    line-height: 20px; /* Match the height of the progress bar */
+    color: black; /* Text color */
+}
