@@ -8,16 +8,28 @@ import { useParams } from 'react-router-dom';
 
 function Comment(){
     const [post, setPosts] = useState([]);
-    const [comment, setComments] = useState([]);
+    const [comments, setComments] = useState([]);
     const {id} = useParams();
 
-    function addComment(newComment) {
-       setComments([newComment,...comment]);
-    }
+    const handleCommentSubmit = async (newComment) => {
+        try {
+            await api.post(`/posts/${id}/comments`, {
+                name: newComment.name,
+                content: newComment.content
+            });
+            const response = await api.get(`/posts/${id}`);
+            console.log("Updated post after comment:", response.data);
+            setComments(response.data.comments || []);
+        } catch (err) {
+            console.error("Error adding comment:", err);
+            alert('Error adding comment');
+        }
+    };
 
     useEffect(() => {
         api.get(`/posts/${id}`)
             .then(response => {
+                console.log("Post data:", response.data); 
                 setPosts(response.data); 
                 setComments(response.data.comments || []);
             })
@@ -26,11 +38,11 @@ function Comment(){
             });
     }, [id]); 
 
-    const commentElement = comment.map((comment) => {
+    const commentElement = comments.map((comment) => {
         return (
-            <div className='commentbox'>
+            <div className='commentbox' key={comment._id}>
                 <p className="commentName">{comment.name}</p>
-                <p className="commentText">{comment.text}</p>
+                <p className="commentText">{comment.content}</p>
             </div>
         )
     })
@@ -49,7 +61,7 @@ function Comment(){
                     </div>
                 </div>
             </div>
-            <Input addCommnent={addComment}/>
+            <Input handleCommentSubmit={handleCommentSubmit} />
             <div className='commentList'>
                 {commentElement}
             </div>
