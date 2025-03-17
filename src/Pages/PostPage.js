@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function PostPage() {
     return (
-        <div>
+        <div class="postpage">
             <Header />
             <Box />
         </div>

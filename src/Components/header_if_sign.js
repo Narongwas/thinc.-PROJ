@@ -1,4 +1,3 @@
-import logo from '../Assets/home.png'
 import React  from 'react';
 import icon from '../Assets/icon.png';
 import Leftheadonanypage  from './leftHeader';
@@ -10,7 +9,7 @@ function Header(){
         <Leftheadonanypage/>
         <div className="Right-header">
             <Link to = "/Profile">
-            <img src={icon} alt="profile"></img><br />
+            <img src={icon} alt="profile" className='iconprofile'></img><br />
             </Link>
         </div>
         </header>)

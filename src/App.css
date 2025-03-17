@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
+
 body{
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -21,12 +22,17 @@ body{
 }
 
 .App-header {
+  position: sticky;
+  top: 0;
   padding: 1%;
   display: flex;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   text-align: center;
   align-items: baseline;
+  background-color: #ffffff;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .App-link {
@@ -69,6 +75,11 @@ body{
 #Login{
   background-color: #ffffff;
   border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+#Login:hover{
+  transform: scale(1.15);
 }
 
 #signup{
@@ -79,6 +90,12 @@ body{
   border-radius: 8px;
   width: 127px;
   height: 48px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#signup:hover{
+  transform: scale(1.15);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 
 .path{
@@ -97,6 +114,13 @@ body{
 #image{
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+#image:hover{
+  transform: scale(1.2);
 }
 
 #AboutMe{
@@ -107,6 +131,11 @@ body{
   letter-spacing: 0%;
   text-align: center;
   color: #0F172A;
+  transition: transform 0.3s ease-in-out;
+}
+
+#AboutMe:hover{
+  transform: scale(1.15);
 }
 
 .Main{
@@ -175,6 +204,12 @@ body{
   color: #000000;
   font-size: 16px;
   font-weight: 500;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.footerButton:hover{
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 #footerh4{
@@ -218,4 +253,13 @@ body{
 
 hr{
   margin-bottom: 25px;
+}
+
+
+.iconprofile{
+  transition: transform 0.3s ease-in-out;
+}
+
+.iconprofile:hover{
+  transform: scale(1.1);
 }
