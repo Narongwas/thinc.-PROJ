@@ -15,13 +15,11 @@ mongoose.connect('mongodb+srv://FujinStar:12345@cluster0.3xvbg.mongodb.net/user_
 global.loggedIn = null
 
 // Controllers
-const indexController = require('./controllers/indexController')
 const loginController = require('./controllers/loginController')
 const registerController = require('./controllers/registerController')
 const storeUserController = require('./controllers/storeUserController')
 const loginUserController = require('./controllers/loginUserController')
 const logoutController = require('./controllers/logoutController')
-const homeController = require('./controllers/homeController')
 
 // Middleware
 const redirectIfAuth = require('./middleware/redirectIfAuth')
@@ -47,8 +45,7 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', indexController)
-app.get('/home', authMiddleware, homeController)
+app.get('/', loginController)
 app.get('/login', redirectIfAuth, loginController)
 app.get('/register', redirectIfAuth, registerController)
 app.post('/user/register', redirectIfAuth, storeUserController)

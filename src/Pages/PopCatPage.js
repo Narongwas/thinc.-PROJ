@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import popcatImage from '../Assets/popcat.jpg'; // Ensure you have the popcat image in the assets folder
 import popcatClickedImage from '../Assets/popcat-clicked.png'; // Ensure you have the clicked image in the assets folder
 import './PopcatPage.css';
+import Header from '../Components/header_if_sign';
 
 const PopcatPage = () => {
     const [isClicked, setIsClicked] = useState(false);
@@ -51,7 +52,9 @@ const PopcatPage = () => {
     const progress = (clickCount / 1000) * 100;
 
     return (
+        
         <div>
+            <Header />
             <div onClick={handleClick} className="popcat-container">
                 <img 
                     src={isClicked ? popcatClickedImage : popcatImage} 
@@ -64,6 +67,7 @@ const PopcatPage = () => {
                 <div className="progress-text">{clickCount} / 1,000 clicks</div>
             </div>
         </div>
+        
     );
 };
 

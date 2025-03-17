@@ -31,7 +31,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    padding-top: 275px; /* Add padding to move the image down */
+    padding-top: 180px; /* Add padding to move the image down */
 }
 
 .popcat-image {

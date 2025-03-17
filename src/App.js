@@ -16,7 +16,7 @@ function App() {
           <Route path="/post" element={<PostPage />} /> 
           <Route path="/Home" element={<Home />} />
           <Route path="/main" element={<MainPageIfSign />} /> 
-          <Route path="/popcat" element={<PopcatPage />} /> {/* Add the new route */}
+          <Route path="/popcat" element={<PopcatPage />} /> 
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>
