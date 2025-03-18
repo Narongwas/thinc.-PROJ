@@ -57,7 +57,7 @@ function Comment(){
                 <p className='postcontent'>{post.content}</p>
                 <div className='Numberofcomment'>
                     <div className='number'>
-                        <img src={commenticon} className='commenticon'/>
+                        <img src={commenticon} alt='commenticon' className='commenticon'/>
                         <p><b>{commentElement.length}</b></p>
                     </div>
                 </div>
