@@ -1,19 +1,46 @@
-import React  from 'react';
+import React, { useState } from 'react';
+import Leftheadonanypage from './leftHeader';
+import logo from '../Assets/home.png';
 import icon from '../Assets/icon.png';
-import Leftheadonanypage  from './leftHeader';
-import { Link } from 'react-router-dom';
+import './header_if_sign.css';
 
-function Header(){
+function Header() {
+    const [dropdownVisible, setDropdownVisible] = useState(false);
 
-    return (<header className="App-header">
-        <Leftheadonanypage/>
-        <div className="Right-header">
-            <Link to = "/Profile">
-            <img src={icon} alt="profile" className='iconprofile'></img><br />
-            </Link>
-        </div>
-        </header>)
+    function onClick() {
+        window.location.href = "index.html";
+    }
+
+    function toggleDropdown() {
+        setDropdownVisible(!dropdownVisible);
+    }
+
+    function handleProfileClick() {
+        // Handle profile click
+        console.log('Profile clicked');
+        window.location.href = "http://localhost:3000/profile"
+    }
+
+    function handleLogoutClick() {
+        // Handle logout click
+        console.log('Logout clicked');
+        window.location.href = "http://localhost:4000/logout"
+    }
+
+    return (
+        <header className="App-header">
+            <Leftheadonanypage onClick={onClick} />
+            <div className="Right-header">
+                <img src={icon} alt="profile" onClick={toggleDropdown} style={{ cursor: 'pointer' }} />
+                {dropdownVisible && (
+                    <div className="dropdown-menu">
+                        <div onClick={handleProfileClick}>Profile</div>
+                        <div onClick={handleLogoutClick}>Logout</div>
+                    </div>
+                )}
+            </div>
+        </header>
+    );
 }
-
 
 export default Header;
