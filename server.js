@@ -1,6 +1,7 @@
 const express = require('express');
 const Post = require('./src/Databases/post_db');
 const Comment = require('./src/Databases/comment_db');
+const User = require('./src/Databases/users_db');
 const cors = require('cors'); 
 
 const app = express();
@@ -73,6 +74,21 @@ app.delete('/api/posts/:postId/comments/:commentId', async (req, res) => {
         res.status(200).json({ message: "Comment deleted successfully" });
     } catch (err) {
         res.status(500).json({ message: "Error deleting comment", error: err });
+    }
+});
+
+app.post('/api/register', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'User already exists' });
+        }
+        const newUser = new User({ email, password, karma: 0, coin: 0 });
+        await newUser.save();
+        res.status(201).json({ message: 'User registered successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error registering user', error });
     }
 });
 

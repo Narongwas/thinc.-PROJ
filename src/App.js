@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './Pages/MainPage.js'; 
 import PostPage from './Pages/PostPage.js';
 import Home from './Pages/Home.js';
+import Comment from './Pages/Comment.js';
 import MainPageIfSign from './Pages/MainPageIfSign.js';
-import PopcatPage from './Pages/PopCatPage.js'; // Import the new PopcatPage component
+import PopcatPage from './Pages/PopCatPage.js';
 import ProfilePage from './Pages/Profile.js';
+import RegisterPage from './Pages/Register.js';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/main" element={<MainPageIfSign />} /> 
           <Route path="/popcat" element={<PopcatPage />} /> 
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/Comment/:id" element={<Comment />} />
+          <Route path="/Register" element={<RegisterPage />} />
         </Routes>
       </div>
     </Router>
