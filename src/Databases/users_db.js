@@ -9,6 +9,7 @@ mongoose.connect('mongodb+srv://I_lia_51_group:cpbigsausagesize51@cluster0.4giur
 const userSchema = new mongoose.Schema({
     email: String,
     password: String,
+    username: String,
     karma: { type: Number, default: 0 },
     coin: { type: Number, default: 0 },
     post: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },

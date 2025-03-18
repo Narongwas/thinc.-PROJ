@@ -78,13 +78,13 @@ app.delete('/api/posts/:postId/comments/:commentId', async (req, res) => {
 });
 
 app.post('/api/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, username } = req.body;
     try {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
-        const newUser = new User({ email, password, karma: 0, coin: 0 });
+        const newUser = new User({ email, password, username, karma: 0, coin: 0 });
         await newUser.save();
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
