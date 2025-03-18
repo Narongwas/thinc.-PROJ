@@ -1,5 +1,6 @@
 const express = require('express');
 const Post = require('./src/Databases/post_db');
+const Comment = require('./src/Databases/comment_db');
 const cors = require('cors'); 
 
 const app = express();
@@ -26,10 +27,53 @@ app.get('/api/posts', (req, res) => {
         .catch(error => res.status(500).json({ message: "Error fetching posts", error }));
 });
 
-app.get('/api/posts/:id', (req, res) => {
-    Post.findById(req.params.id)
-        .then(post => res.status(200).json(post))
-        .catch(error => res.status(500).json({ message: "Error fetching post", error }));
+app.get('/api/posts/:id', async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id).populate('comments');
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+        console.log("Post data being sent:", post);
+        res.status(200).json(post);
+    } catch (error) {
+        console.error("Error fetching post:", error);
+        res.status(500).json({ message: "Error fetching post", error });
+    }
+});
+
+app.post('/api/posts/:id/comments', (req, res) => {
+    const { name, content } = req.body;
+    const newComment = new Comment({
+        post: req.params.id,
+        name,
+        content,
+        date: Date.now()
+    });
+
+    newComment.save()
+        .then(comment => {
+            Post.findById(req.params.id)
+                .then(post => {
+                    post.comments.push(comment._id); 
+                    post.save()
+                        .then(() => res.status(200).json(comment))
+                        .catch(error => res.status(500).json({ message: "Error updating post with comment", error }));
+                })
+                .catch(error => res.status(500).json({ message: "Error fetching post to link comment", error }));
+        })
+        .catch(error => res.status(500).json({ message: "Error saving comment", error }));
+});
+
+app.delete('/api/posts/:postId/comments/:commentId', async (req, res) => {
+    const { postId, commentId } = req.params;
+    try {
+        const post = await Post.findById(postId);
+        post.comments = post.comments.filter(comment => comment._id.toString() !== commentId);
+        await post.save();
+        res.status(200).json({ message: "Comment deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ message: "Error deleting comment", error: err });
+    }
 });
 
 const PORT = 5000;
