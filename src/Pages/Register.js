@@ -2,8 +2,6 @@ import './Register.css'
 import React, { useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import { useNavigate } from "react-router-dom";
-
-
 function RegisterPage() {
     return (
         <div classname="registerpage">
@@ -16,6 +14,7 @@ function Box(){
     const [email_per, setEmail] = useState('');
     const [password_per, setPassword] = useState('');
     const [username_per, setUsername] = useState('');
+    const [confirm_password_per, setConfirmPassword] = useState('');
     const navigate = useNavigate(); 
 
     const handleEmailChange = (e) => {
@@ -28,6 +27,10 @@ function Box(){
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
+    };
+
+    const handleConfirmPasswordChange = (e) => {
+        setConfirmPassword(e.target.value);
     };
 
     const handleSubmit = (e) => {
@@ -45,10 +48,12 @@ function Box(){
     };    
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1 className="h3 mb-3 fw-normal">Sign In</h1>
-
-            <div className="form-floating mb-3">
+        <form className='form-signup' onSubmit={handleSubmit}>
+            <p class="wec">Welcome !</p>
+            <h1 className="h3mb-3fw-normal">Sign up to</h1>
+            <p>Lorem Ipsum is simply </p>
+            <div className="form-floating">
+                <label htmlFor="floatingInput">Email address</label>
                 <input
                     type="email"
                     name="email"
@@ -58,23 +63,10 @@ function Box(){
                     value={email_per}
                     onChange={handleEmailChange}
                 />
-                <label htmlFor="floatingInput">Email address</label>
-            </div>
-            
-            <div className="form-floating mb-3">
-                <input
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    id="floatingPassword"
-                    placeholder="Password"
-                    value={password_per}
-                    onChange={handlePasswordChange}
-                />
-                <label htmlFor="floatingPassword">Password</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating">
+                <label htmlFor="floatingPassword">Username(Display)</label>
                 <input
                     type="username"
                     name="username"
@@ -84,12 +76,39 @@ function Box(){
                     value={username_per}
                     onChange={handleUsernameChange}
                 />
-                <label htmlFor="floatingPassword">Username(Display)</label>
+            </div>
+            
+            <div className="form-floating">
+                <label htmlFor="floatingPassword">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    id="floatingPassword"
+                    placeholder="Password"
+                    value={password_per}
+                    onChange={handlePasswordChange}
+                />
             </div>
 
-            <button className="w-100 btn btn-lg btn-primary" type="submit">
-                Sign in
+            <div className="form-floating">
+                <label htmlFor="floatingPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    id="floatingConfirmPassword"
+                    placeholder="Password"
+                    value={confirm_password_per}
+                    onChange={handleConfirmPasswordChange}
+                />
+            </div>
+
+
+            <button className="w-100btnbtn-lgbtn-primary" type="submit">
+                Register
             </button>
+            <p class="mt-5mb-3text-muted">Already have an Account? <a href="/user/register"><b>Sign in</b></a></p>
         </form>
     );
 }

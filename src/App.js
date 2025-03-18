@@ -8,6 +8,7 @@ import MainPageIfSign from './Pages/MainPageIfSign.js';
 import PopcatPage from './Pages/PopCatPage.js';
 import ProfilePage from './Pages/Profile.js';
 import RegisterPage from './Pages/Register.js';
+import Signinpage from './Pages/login.js';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/Comment/:id" element={<Comment />} />
           <Route path="/Register" element={<RegisterPage />} />
+          <Route path="/Signin" element={<Signinpage />} />
         </Routes>
       </div>
     </Router>

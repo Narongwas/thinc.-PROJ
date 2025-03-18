@@ -1,6 +1,7 @@
 import logo from '../Assets/home.png'
 import React from 'react';
 import Leftheadonanypage from './leftHeader';
+import { Link } from 'react-router-dom';
 
 function Header() {
 
@@ -16,8 +17,12 @@ function Header() {
     return (<header className="App-header">
         <Leftheadonanypage />
         <div className="Right-header">
-              <button id="Login" className="headerButton" onClick={handleLoginClick}>Log In</button>
-              <button id="signup" className="headerButton" onClick={handleSignupClick}>Join Now</button>
+              <Link to={'/Signin'}>
+              <button id="Login" className="headerButton">Log In</button>
+              </Link>
+              <Link to={'/Register'}>
+              <button id="signup" className="headerButton" >Join Now</button>
+              </Link>
         </div>
         </header>)
 }
