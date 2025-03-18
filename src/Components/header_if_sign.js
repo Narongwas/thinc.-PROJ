@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import Leftheadonanypage from './leftHeader';
-import logo from '../Assets/home.png';
 import icon from '../Assets/icon.png';
 import './header_if_sign.css';
 
 function Header() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
-
-    function onClick() {
-        window.location.href = "index.html";
-    }
 
     function toggleDropdown() {
         setDropdownVisible(!dropdownVisible);
@@ -29,7 +24,7 @@ function Header() {
 
     return (
         <header className="App-header">
-            <Leftheadonanypage onClick={onClick} />
+            <Leftheadonanypage />
             <div className="Right-header">
                 <img src={icon} alt="profile" onClick={toggleDropdown} style={{ cursor: 'pointer' }} />
                 {dropdownVisible && (

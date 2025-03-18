@@ -14,7 +14,7 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -40,18 +40,24 @@
           font-size: 3.5rem;
         }
       }
+
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="/css/signin.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+<body class="text-center">
+<header>
+  <div className="left-Header"><b>Name</b></div>
+  <a className="path" id="AboutMe">เกี่ยวกับเรา</a>
+</header>
     
 <main class="form-signin">
   <form action="/user/login" method="POST">
-    
-    <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+    <p class="wec">Welcome !</p>
+    <h1 class="h3mb-3fw-normal">Sign in to</h1>
+    <p>Lorem Ipsum is simply </p>
 
     <% if (flashMessages && flashMessages.validationErrors) { %>
       <% flashMessages.validationErrors.forEach((error) => { %>
@@ -62,19 +68,22 @@
     <% } %>
 
     <div class="form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <p>Username</p>
+      <input type="email" name="email" title="Email address"  id="floatingInput"  placeholder="Enter your user name">
     </div>
     <div class="form-floating">
-      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <p>Password</p>
+      <input type="password" name="password"  id="floatingPassword" placeholder="Enter your Password">
     </div>
 
-    <div class="checkbox mb-3">
-      
+    <div class="checkboxmb-3">
+      <div><input type="checkbox" value="remember-me"> Remember me</div>
+      <a>Forgot Password ?</a>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100btnbtn-lgbtn-primary" type="submit">Log in</button>
     
+
+    <p class="mt-5mb-3text-muted">Don't have an account? <a href="/user/register"><b>Register</b></a></p>
   </form>
 </main>
 
