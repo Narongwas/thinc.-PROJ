@@ -1,7 +1,7 @@
 import './signin.css';
 import React, { useState } from 'react';
 import api from '../Assets/axiosConfig.js';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signinpage() {
     return (
@@ -32,7 +32,11 @@ function Box() {
                 <a>Forgot Password ?</a>
                 </div>
                 <button class="w-100btnbtn-lgbtn-primary" type="submit">Log in</button>
-                <p class="mt-5mb-3text-muted">Don't have an account? <a href="/user/register"><b>Register</b></a></p>
+                <p class="mt-5mb-3text-muted">Don't have an account? 
+                    <a href="/user/register">
+                        <Link to={'/Register'}><b>Register</b></Link>
+                    </a>
+                </p>
             </form>
     )
 }

@@ -2,6 +2,7 @@ import './Register.css'
 import React, { useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 function RegisterPage() {
     return (
         <div classname="registerpage">
@@ -108,7 +109,13 @@ function Box(){
             <button className="w-100btnbtn-lgbtn-primary" type="submit">
                 Register
             </button>
-            <p class="mt-5mb-3text-muted">Already have an Account? <a href="/user/register"><b>Sign in</b></a></p>
+            <p class="mt-5mb-3text-muted">Already have an Account? 
+                <a href="/user/register">
+                <Link to={'/Signin'}>
+                    <b>Sign in</b>
+                </Link>
+                </a>
+            </p>
         </form>
     );
 }
