@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-function Input({ handleCommentSubmit }) {
+function Input({ handleCommentSubmit, username }) {
     const [input, setInput] = useState('');
 
     const onClick = () => {
         if (input.trim() !== '') {
-            const newComment = { name: "Anonymous", content: input };
+            const newComment = { name: username, content: input };
             handleCommentSubmit(newComment);
             setInput('');
         }

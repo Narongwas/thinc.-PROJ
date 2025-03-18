@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 function Comment(){
     const [post, setPosts] = useState([]);
     const [comments, setComments] = useState([]);
+    const [username, setUsername] = useState('Anonymous');
     const {id} = useParams();
 
     const handleCommentSubmit = async (newComment) => {
