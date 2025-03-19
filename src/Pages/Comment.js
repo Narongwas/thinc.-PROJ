@@ -58,8 +58,8 @@ function Comment(){
     useEffect(() => {
         api.get(`/posts/${id}`)
             .then(response => {
-                console.log("Post data:", response.data.user); 
                 setPosts(response.data); 
+                console.log("Post data:", response.data.user[0].username); 
                 setComments(response.data.comments);
             })
             .catch(error => {
@@ -94,7 +94,7 @@ function Comment(){
             <div className="post_comment">
                 <p className='Head'>{post.title}</p>
                 <p className='postcontent'>{post.content}</p>
-                <p className='username'>by {post.user.username}</p>
+                <p className='username'>by {post.user[0].username}</p>
                 <div className='Numberofcomment'>
                     <div className='number'>
                         <img src={commenticon} alt='commenticon' className='commenticon'/>
