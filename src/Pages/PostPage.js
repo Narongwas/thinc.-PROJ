@@ -61,10 +61,11 @@ function Box(){
                     <div className="input-group">
                         <textarea
                             className="thought-input"
-                            placeholder="Enter your thought"
+                            placeholder="Enter your thought (max 200 characters)"
                             value={body}
                             onChange={handleBodyChange}
                             aria-label="Thought"
+                            maxLength={200}
                         />
                     </div>
 

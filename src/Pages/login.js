@@ -19,8 +19,8 @@ function Box() {
                 <p>Lorem Ipsum is simply </p>
 
                 <div class="form-floating">
-                <p>Username</p>
-                <input type="email" name="email" title="Email address"  id="floatingInput"  placeholder="Enter your user name"/>
+                <p>Email</p>
+                <input type="email" name="email" title="Email address"  id="floatingInput"  placeholder="Enter your email"/>
                 </div>
                 <div class="form-floating">
                 <p>Password</p>
