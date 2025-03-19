@@ -37,7 +37,7 @@ function Home() {
             <h2>Home</h2>
             <div className="posts-container">
                 {posts.map(post => (
-                    <div className="post" key={post._id} onClick={() => handlePostClick(post._id)} style={{ cursor: 'pointer' }}>
+                    <div className="post" key={post._id} >
                         <div className="post-name">
                             <h3>{post.title}</h3>
                         </div>
@@ -45,10 +45,10 @@ function Home() {
                             <button className="delete-btn" onClick={(event) => deletePost(post._id, event)}>X</button>
                         </div>
                         <section className="post-name-and-content" key={post._id} onClick={() => handlePostClick(post._id)} style={{ cursor: 'pointer' }}>
-                            <div className="post-name">
+                            <div className="post-name" >
                                 <h3>{post.name}</h3>
                             </div>
-                            <div className="post-content" >
+                            <div className="post-content">
                                 <p>{post.content}</p>
                             </div>
                         </section>
