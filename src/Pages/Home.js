@@ -24,22 +24,29 @@ function Home() {
         navigate(`/Comment/${postId}`);
     };
 
+    const deletePost = (postId) => {
+        setPosts(posts.filter(post => post._id !== postId))
+    };
+
+
     return (
         <div>
             <Header />
             <h2>Home</h2>
             <div className="posts-container">
                 {posts.map(post => (
-                    <div className="post" key={post._id} onClick={() => handlePostClick(post._id)} style={{ cursor: 'pointer' }}>
-                        <div className="post-name">
-                            <h3>{post.name}</h3>
-                        </div>
+                    <div className="post">
                         <div className="deletepost">
-                            <button className="delete-btn" >X</button>
+                            <button className="delete-btn" onClick={() => deletePost(post._id)}>X</button>
                         </div>
-                        <div className="post-content">
-                            <p>{post.content}</p>
-                        </div>
+                        <section className="post-name-and-content" key={post._id} onClick={() => handlePostClick(post._id)} style={{ cursor: 'pointer' }}>
+                            <div className="post-name">
+                                <h3>{post.name}</h3>
+                            </div>
+                            <div className="post-content" >
+                                <p>{post.content}</p>
+                            </div>
+                        </section>
                     </div>
                 ))}
             </div>
