@@ -12,7 +12,7 @@ module.exports = (req,res) => {
             let cmp = bcrypt.compare(password , user.password).then((match) => {
                 if (match){
                     req.session.userId = user._id
-                    res.redirect(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/main`)
+                    res.redirect(`${import.meta.env.REACT_APP_FRONTEND_BASEURL}/main`)
                 }
                 else{
                     req.flash('validationErrors', ['email or password is incorrect'])

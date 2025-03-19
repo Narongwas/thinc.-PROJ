@@ -13,7 +13,7 @@ function Header() {
     function handleProfileClick() {
         // Handle profile click
         console.log('Profile clicked');
-        window.location.href = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/profile`
+        window.location.href = `${import.meta.env.REACT_APP_FRONTEND_BASEURL}/profile`
     }
 
     function handleLogoutClick() {
