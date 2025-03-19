@@ -94,7 +94,7 @@ function Comment(){
             <div className="post_comment">
                 <p className='Head'>{post.title}</p>
                 <p className='postcontent'>{post.content}</p>
-                <p className='username'>by {post.user[0].username}</p>
+                <p className='username'>by {post.user && post.user.length > 0 ? post.user[0].username : "Unknown"}</p>
                 <div className='Numberofcomment'>
                     <div className='number'>
                         <img src={commenticon} alt='commenticon' className='commenticon'/>
