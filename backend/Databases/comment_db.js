@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://I_lia_51_group:cpbigsausagesize51@cluster0.4giur.mongodb.net/User_Post?retryWrites=true&w=majority', {
+mongoose.connect(`${import.meta.env.MONGODB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
