@@ -1,6 +1,6 @@
 import './signin.css';
 import React, { useState } from 'react';
-import api from '../Assets/axiosConfig.js';
+import api from '../axiosConfig.js';
 import { Link, useNavigate } from "react-router-dom";
 
 function Signinpage() {

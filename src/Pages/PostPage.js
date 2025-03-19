@@ -1,6 +1,6 @@
 import './PostPage.css'
 import React, { useState } from 'react';
-import api from '../Assets/axiosConfig.js';
+import api from '../axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
 import { useNavigate } from "react-router-dom";
 

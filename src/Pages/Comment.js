@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Components/header_if_sign.js';
 import Input from '../Components/input.js';
-import api from '../Assets/axiosConfig.js';
+import api from '../axiosConfig.js';
 import commenticon from '../Assets/commenticon.png';
 import './comment.css';
 import { useParams } from 'react-router-dom';

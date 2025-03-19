@@ -1,6 +1,6 @@
 import './Home.css';
 import React, { useEffect, useState } from 'react';
-import api from '../Assets/axiosConfig.js';
+import api from '../axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
 import { useNavigate } from "react-router-dom";
 import plusicon from '../Assets/plus-icon-black-2.png';
