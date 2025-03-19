@@ -133,6 +133,14 @@ function Comment() {
                 <p className='postcontent'>{post.content}</p>
                 <p className='username'> by {post.user && post.user.length > 0 ? post.user[0].username : "Unknown"}</p>
                 <div className='Numberofcomment'>
+                    <div className="number like-dislike" onClick={() => handleLike(post._id)}>
+                        <img src={upper} className="voteimg" alt="Upvote" />
+                        <p>{0}</p>
+                    </div>
+                    <div className="number like-dislike" onClick={() => handleDislike(post._id)}>
+                        <img src={lower} className="voteimg" alt="Downvote" />
+                        <p>{0}</p>
+                    </div>
                     <div className='number'>
                         <img src={commenticon} alt='commenticon' className='commenticon'/>
                         <p><b>{commentElement.length}</b></p>
