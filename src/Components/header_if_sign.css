@@ -4,6 +4,12 @@
     margin-right: 100px; /* Adjust this value as needed */
 }
 
+.Right-header img{
+    width: 50px;
+    position: relative;
+    right: 50%;
+}
+
 .dropdown-menu {
     display: block;
     position: absolute;
