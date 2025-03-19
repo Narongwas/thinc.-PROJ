@@ -34,6 +34,9 @@ function Home() {
                         <div className="post-name">
                             <h3>{post.name}</h3>
                         </div>
+                        <div className="deletepost">
+                            <button className="delete-btn" >X</button>
+                        </div>
                         <div className="post-content">
                             <p>{post.content}</p>
                         </div>
