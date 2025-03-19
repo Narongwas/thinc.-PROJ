@@ -9,9 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/posts', (req, res) => {
-    const {name, content} = req.body;
+    const {user, title, content} = req.body;
     const newPost = new Post({
-        name,
+        user: user,
+        title,
         content,
         vote: 0,
         date: Date.now()
@@ -31,6 +32,7 @@ app.get('/api/posts', (req, res) => {
 app.get('/api/posts/:id', async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)
+            .populate('user', 'username')
             .populate({
                 path: 'comments',
                 populate: { path: 'user', select: 'username' }
