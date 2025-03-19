@@ -13,7 +13,7 @@ function Header() {
     function handleProfileClick() {
         // Handle profile click
         console.log('Profile clicked');
-        window.location.href = "http://localhost:3000/profile"
+        window.location.href = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/profile`
     }
 
     function handleLogoutClick() {
