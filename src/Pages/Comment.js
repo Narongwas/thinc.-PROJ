@@ -9,38 +9,58 @@ import upper from '../Assets/Arrowup.png';
 import lower from '../Assets/Arrowdown.png';
 
 function Comment() {
-    const [likeCount, setLikeCount] = useState(0);
-    const [isLiked, setIsLiked] = useState(false);
-    const [dislikeCount, setDislikeCount] = useState(0);
-    const [isDisliked, setIsDisliked] = useState(false);
     const [post, setPosts] = useState([]);
     const [comments, setComments] = useState([]);
     const { id } = useParams();
 
-    const handleLike = () => {
-        if (!isLiked) {
-            setLikeCount(likeCount + 1);
-            if (isDisliked) {
-                setDislikeCount(dislikeCount - 1);
-                setIsDisliked(false);
-            }
-        } else {
-            setLikeCount(likeCount - 1);
-        }
-        setIsLiked(!isLiked);
+    const handleLike = (commentId) => {
+        setComments((prevComments) =>
+            prevComments.map((comment) => {
+                if (comment._id === commentId) {
+                    if (!comment.isLiked) {
+                        return {
+                            ...comment,
+                            likeCount: comment.likeCount + 1,
+                            isLiked: true,
+                            isDisliked: false,
+                            dislikeCount: comment.isDisliked ? comment.dislikeCount - 1 : comment.dislikeCount,
+                        };
+                    } else {
+                        return {
+                            ...comment,
+                            likeCount: comment.likeCount - 1,
+                            isLiked: false,
+                        };
+                    }
+                }
+                return comment;
+            })
+        );
     };
 
-    const handleDislike = () => {
-        if (!isDisliked) {
-            setDislikeCount(dislikeCount + 1);
-            if (isLiked) {
-                setLikeCount(likeCount - 1);
-                setIsLiked(false);
-            }
-        } else {
-            setDislikeCount(dislikeCount - 1);
-        }
-        setIsDisliked(!isDisliked);
+    const handleDislike = (commentId) => {
+        setComments((prevComments) =>
+            prevComments.map((comment) => {
+                if (comment._id === commentId) {
+                    if (!comment.isDisliked) {
+                        return {
+                            ...comment,
+                            dislikeCount: comment.dislikeCount + 1,
+                            isDisliked: true,
+                            isLiked: false,
+                            likeCount: comment.isLiked ? comment.likeCount - 1 : comment.likeCount,
+                        };
+                    } else {
+                        return {
+                            ...comment,
+                            dislikeCount: comment.dislikeCount - 1,
+                            isDisliked: false,
+                        };
+                    }
+                }
+                return comment;
+            })
+        );
     };
 
     const handleCommentSubmit = async (newComment) => {
@@ -48,41 +68,56 @@ function Comment() {
             const userId = localStorage.getItem('userId');
             await api.post(`/posts/${id}/comments`, {
                 user: userId,
-                content: newComment.content
+                content: newComment.content,
             });
             const response = await api.get(`/posts/${id}`);
-            setComments(response.data.comments);
+            setComments(
+                response.data.comments.map((comment) => ({
+                    ...comment,
+                    likeCount: 0,
+                    dislikeCount: 0,
+                    isLiked: false,
+                    isDisliked: false,
+                }))
+            );
         } catch (err) {
             console.error("Error adding comment:", err);
-            alert('Error adding comment');
+            alert("Error adding comment");
         }
     };
 
     useEffect(() => {
         api.get(`/posts/${id}`)
-            .then(response => {
+            .then((response) => {
                 setPosts(response.data);
-                console.log("Post data:", response.data.user[0].username);
-                setComments(response.data.comments);
+                setComments(
+                    response.data.comments.map((comment) => ({
+                        ...comment,
+                        likeCount: 0,
+                        dislikeCount: 0,
+                        isLiked: false,
+                        isDisliked: false,
+                    }))
+                );
             })
-            .catch(error => {
+            .catch((error) => {
                 alert("Error fetching posts");
             });
     }, [id]);
 
     const commentElement = comments.map((comment) => {
         return (
-            <div className='commentbox' key={comment._id}>
+            <div className="commentbox" key={comment._id}>
                 <p className="commentName">{comment.user[0].username}</p>
                 <p className="commentText">{comment.content}</p>
-                <div className='icon-group-comment'>
-                    <div className='number' onClick={handleLike}>
-                        <img src={upper} className='voteimg' alt="Upvote" />
-                        <p>{likeCount}</p>
+                <div className="icon-group-comment">
+                    <div className="number" onClick={() => handleLike(comment._id)}>
+                        <img src={upper} className="voteimg" alt="Upvote" />
+                        <p>{comment.likeCount}</p>
                     </div>
-                    <div className='number' onClick={handleDislike}>
-                        <img src={lower} className='voteimg' alt="Downvote" />
-                        <p>{dislikeCount}</p>
+                    <div className="number" onClick={() => handleDislike(comment._id)}>
+                        <img src={lower} className="voteimg" alt="Downvote" />
+                        <p>{comment.dislikeCount}</p>
                     </div>
                 </div>
             </div>
@@ -94,20 +129,22 @@ function Comment() {
             <Header />
             <main>
                 <div className="post_comment">
-                    <p className='Head'>{post.title}</p>
-                    <p className='postcontent'>{post.content}</p>
-                    <p className='username'>by {post.user && post.user.length > 0 ? post.user[0].username : "Unknown"}</p>
-                    <div className='Numberofcomment'>
-                        <div className='number'>
-                            <img src={commenticon} alt='commenticon' className='commenticon' />
-                            <p><b>{commentElement.length}</b></p>
+                    <p className="Head">{post.title}</p>
+                    <p className="postcontent">{post.content}</p>
+                    <p className="username">
+                        by {post.user && post.user.length > 0 ? post.user[0].username : "Unknown"}
+                    </p>
+                    <div className="Numberofcomment">
+                        <div className="number">
+                            <img src={commenticon} alt="commenticon" className="commenticon" />
+                            <p>
+                                <b>{commentElement.length}</b>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <Input handleCommentSubmit={handleCommentSubmit} />
-                <div className='commentList'>
-                    {commentElement}
-                </div>
+                <div className="commentList">{commentElement}</div>
             </main>
         </div>
     );
