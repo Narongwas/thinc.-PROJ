@@ -29,6 +29,20 @@ app.get('/api/posts', (req, res) => {
         .catch(error => res.status(500).json({ message: "Error fetching posts", error }));
 });
 
+app.delete('/api/posts/:id', async (req, res) => {
+    try {
+        const deletedPost = await Post.findByIdAndDelete(req.params.id);
+        if (!deletedPost) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+        await Comment.deleteMany({ post: req.params.id });
+        
+        res.status(200).json({ message: "Post and related comments deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Error deleting post", error });
+    }
+});
+
 app.get('/api/posts/:id', async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)

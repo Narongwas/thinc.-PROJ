@@ -108,7 +108,7 @@ function Comment() {
     const commentElement = comments.map((comment) => {
         return (
             <div className="commentbox" key={comment._id}>
-                <p className="commentName">{comment.user[0].username}</p>
+                <p className="commentName">{comment.user && comment.user[0] ? comment.user[0].username : "Unknown"}</p>
                 <p className="commentText">{comment.content}</p>
                 <div className="icon-group-comment">
                     <div className="number" onClick={() => handleLike(comment._id)}>
@@ -132,7 +132,7 @@ function Comment() {
                     <p className="Head">{post.title}</p>
                     <p className="postcontent">{post.content}</p>
                     <p className="username">
-                        by {post.user && post.user.length > 0 ? post.user[0].username : "Unknown"}
+                        by {post.user ? post.user.username : "Unknown"}
                     </p>
                     <div className="Numberofcomment">
                         <div className="number">
