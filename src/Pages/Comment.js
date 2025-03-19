@@ -14,13 +14,14 @@ function Comment(){
     const handleCommentSubmit = async (newComment) => {
         try {
             const userId = localStorage.getItem('userId');
-            console.log("Sending comment data:", { user: userId, content: newComment.content });
+            //console.log("Sending comment data:", { user: userId, content: newComment.content });
             await api.post(`/posts/${id}/comments`, {
                 user: userId,
                 content: newComment.content
             });
             const response = await api.get(`/posts/${id}`);
-            console.log("Updated post after comment:", response.data);
+            //console.log("Updated post after comment:", response.data);
+            //console.log("Comment data:", response.data.user); 
             setComments(response.data.comments);
         } catch (err) {
             console.error("Error adding comment:", err);
@@ -31,7 +32,7 @@ function Comment(){
     useEffect(() => {
         api.get(`/posts/${id}`)
             .then(response => {
-                console.log("Post data:", response.data); 
+                console.log("Post data:", response.data.user); 
                 setPosts(response.data); 
                 setComments(response.data.comments);
             })
@@ -41,7 +42,7 @@ function Comment(){
     }, [id]); 
 
     const commentElement = comments.map((comment) => {
-        console.log("Comment User:", comment.user[0].username);
+        console.log("Comment Data:", comment.user);
         return (
             <div className='commentbox' key={comment._id}>
                 <p className="commentName">{comment.user[0].username}</p>
@@ -55,8 +56,9 @@ function Comment(){
             <Header />
             <main>
             <div className="post_comment">
-                <p className='Head'>{post.name}</p>
+                <p className='Head'>{post.title}</p>
                 <p className='postcontent'>{post.content}</p>
+                <p className='username'>by {post.user.username}</p>
                 <div className='Numberofcomment'>
                     <div className='number'>
                         <img src={commenticon} alt='commenticon' className='commenticon'/>

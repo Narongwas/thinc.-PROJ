@@ -29,7 +29,8 @@ function Box(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        api.post('/posts', { name: title, content: body }) 
+        const userId = localStorage.getItem('userId');
+        api.post('/posts', { user: userId, title: title, content: body }) 
             .then(response => {
                 setTitle('');
                 setBody('');
