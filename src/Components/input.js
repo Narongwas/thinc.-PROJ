@@ -19,7 +19,7 @@ function Input({ handleCommentSubmit }) {
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
             />
-            <button onClick={onClick}>Submit</button>
+            <button onClick={onClick}>Comment</button>
         </div>
     );
 }

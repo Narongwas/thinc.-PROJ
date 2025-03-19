@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(135deg, #f0f8ff, #ffffff);
 }
 
 .profileBtn{
