@@ -24,8 +24,10 @@ function Home() {
         navigate(`/Comment/${postId}`);
     };
 
-    const deletePost = (postId) => {
-        setPosts(posts.filter(post => post._id !== postId))
+    const deletePost = async (postId, event) => {
+        event.stopPropagation();
+        await api.delete(`/posts/${postId}`);
+        setPosts(posts.filter(post => post._id !== postId));
     };
 
 
@@ -40,7 +42,7 @@ function Home() {
                             <h3>{post.title}</h3>
                         </div>
                         <div className="deletepost">
-                            <button className="delete-btn" onClick={() => deletePost(post._id)}>X</button>
+                            <button className="delete-btn" onClick={(event) => deletePost(post._id, event)}>X</button>
                         </div>
                         <section className="post-name-and-content" key={post._id} onClick={() => handlePostClick(post._id)} style={{ cursor: 'pointer' }}>
                             <div className="post-name" >
