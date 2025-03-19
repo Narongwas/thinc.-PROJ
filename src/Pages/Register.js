@@ -117,7 +117,7 @@ function Box() {
             <button className="w-100 btn btn-lg btn-primary" type="submit">
                 Register
             </button>
-            <p className="mt-5 mb-3 text-muted">
+            <p className="mt-5mb-3text-muted">
                 Already have an Account? 
                 <Link to="/Signin">
                     <b>Sign in</b>
