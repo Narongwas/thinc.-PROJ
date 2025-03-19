@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
 import { useNavigate } from "react-router-dom";
+import plusicon from '../Assets/plus-icon-black-2.png';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const [posts, setPosts] = useState([]);
@@ -38,6 +40,13 @@ function Home() {
                     </div>
                 ))}
             </div>
+            <footer className="">
+                <Link to={'/post'}>
+                <button className="topost-btn">
+                    <img src={plusicon} alt="plusicon" className="topost-icon"/>
+                </button>
+                </Link>
+            </footer>
         </div>
     );
 }
