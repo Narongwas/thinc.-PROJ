@@ -1,17 +1,18 @@
-import './Register.css'
+import './Register.css';
 import React, { useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+
 function RegisterPage() {
     return (
-        <div classname="registerpage">
+        <div className="registerpage">
             <Box />
         </div>
     );
 }
 
-function Box(){
+function Box() {
     const [email_per, setEmail] = useState('');
     const [password_per, setPassword] = useState('');
     const [username_per, setUsername] = useState('');
@@ -36,6 +37,10 @@ function Box(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (password_per !== confirm_password_per) {
+            alert("Passwords do not match!");
+            return;
+        }
         api.post('/register', { email: email_per, password: password_per, username: username_per }) 
             .then(response => {
                 const userId = response.data._id;
@@ -43,18 +48,19 @@ function Box(){
                 setEmail('');
                 setPassword('');
                 setUsername('');
+                setConfirmPassword('');
                 navigate('/Home'); 
             })
             .catch(error => {
-                alert("Error!");
+                alert("Error during registration!");
             });
     };  
 
     return (
-        <form className='form-signup' onSubmit={handleSubmit}>
-            <p class="wec">Welcome !</p>
-            <h1 className="h3mb-3fw-normal">Sign up to</h1>
-            <p>Lorem Ipsum is simply </p>
+        <form className="form-signup" onSubmit={handleSubmit}>
+            <p className="wec">Welcome!</p>
+            <h1 className="h3 mb-3 fw-normal">Sign up to</h1>
+            <p>Lorem Ipsum is simply</p>
             <div className="form-floating">
                 <label htmlFor="floatingInput">Email address</label>
                 <input
@@ -69,9 +75,9 @@ function Box(){
             </div>
 
             <div className="form-floating">
-                <label htmlFor="floatingPassword">Username(Display)</label>
+                <label htmlFor="floatingUsername">Username (Display)</label>
                 <input
-                    type="username"
+                    type="text"
                     name="username"
                     className="form-control"
                     id="floatingUsername"
@@ -95,28 +101,26 @@ function Box(){
             </div>
 
             <div className="form-floating">
-                <label htmlFor="floatingPassword">Confirm Password</label>
+                <label htmlFor="floatingConfirmPassword">Confirm Password</label>
                 <input
                     type="password"
-                    name="password"
+                    name="confirm_password"
                     className="form-control"
                     id="floatingConfirmPassword"
-                    placeholder="Password"
+                    placeholder="Confirm Password"
                     value={confirm_password_per}
                     onChange={handleConfirmPasswordChange}
                 />
             </div>
 
-
-            <button className="w-100btnbtn-lgbtn-primary" type="submit">
+            <button className="w-100 btn btn-lg btn-primary" type="submit">
                 Register
             </button>
-            <p class="mt-5mb-3text-muted">Already have an Account? 
-                <a href="/user/register">
-                <Link to={'/Signin'}>
+            <p className="mt-5 mb-3 text-muted">
+                Already have an Account? 
+                <Link to="/Signin">
                     <b>Sign in</b>
                 </Link>
-                </a>
             </p>
         </form>
     );
