@@ -9,14 +9,14 @@ import { useParams } from 'react-router-dom';
 function Comment(){
     const [post, setPosts] = useState([]);
     const [comments, setComments] = useState([]);
-    const [username, setUsername] = useState('Anonymous');
     const {id} = useParams();
 
     const handleCommentSubmit = async (newComment) => {
         try {
+            const userId = localStorage.getItem('userId');
             await api.post(`/posts/${id}/comments`, {
-                name: newComment.name,
-                content: newComment.content
+                content: newComment.content,
+                user: userId
             });
             const response = await api.get(`/posts/${id}`);
             console.log("Updated post after comment:", response.data);
@@ -42,7 +42,7 @@ function Comment(){
     const commentElement = comments.map((comment) => {
         return (
             <div className='commentbox' key={comment._id}>
-                <p className="commentName">{comment.name}</p>
+                <p className="commentName">{comment.user}</p>
                 <p className="commentText">{comment.content}</p>
             </div>
         )

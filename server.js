@@ -30,7 +30,11 @@ app.get('/api/posts', (req, res) => {
 
 app.get('/api/posts/:id', async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id).populate('comments');
+        const post = await Post.findById(req.params.id)
+            .populate({
+                path: 'comments',
+                populate: { path: 'user', select: 'username' }
+            });
         if (!post) {
             return res.status(404).json({ message: "Post not found" });
         }
@@ -43,10 +47,10 @@ app.get('/api/posts/:id', async (req, res) => {
 });
 
 app.post('/api/posts/:id/comments', (req, res) => {
-    const { name, content } = req.body;
+    const { userId, content } = req.body;
     const newComment = new Comment({
         post: req.params.id,
-        name,
+        user: userId,
         content,
         date: Date.now()
     });
@@ -85,8 +89,8 @@ app.post('/api/register', async (req, res) => {
             return res.status(400).json({ message: 'User already exists' });
         }
         const newUser = new User({ email, password, username, karma: 0, coin: 0 });
-        await newUser.save();
-        res.status(201).json({ message: 'User registered successfully' });
+        const savedUser = await newUser.save();
+        res.status(201).json(savedUser);
     } catch (error) {
         res.status(500).json({ message: 'Error registering user', error });
     }

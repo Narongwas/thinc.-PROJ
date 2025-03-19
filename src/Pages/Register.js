@@ -38,6 +38,8 @@ function Box(){
         e.preventDefault();
         api.post('/register', { email: email_per, password: password_per, username: username_per }) 
             .then(response => {
+                const userId = response.data._id;
+                localStorage.setItem('userId', userId);
                 setEmail('');
                 setPassword('');
                 setUsername('');
@@ -46,7 +48,7 @@ function Box(){
             .catch(error => {
                 alert("Error!");
             });
-    };    
+    };  
 
     return (
         <form className='form-signup' onSubmit={handleSubmit}>
