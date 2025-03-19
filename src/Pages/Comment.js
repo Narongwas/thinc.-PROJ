@@ -14,13 +14,14 @@ function Comment(){
     const handleCommentSubmit = async (newComment) => {
         try {
             const userId = localStorage.getItem('userId');
+            console.log("Sending comment data:", { user: userId, content: newComment.content });
             await api.post(`/posts/${id}/comments`, {
-                content: newComment.content,
-                user: userId
+                user: userId,
+                content: newComment.content
             });
             const response = await api.get(`/posts/${id}`);
             console.log("Updated post after comment:", response.data);
-            setComments(response.data.comments || []);
+            setComments(response.data.comments);
         } catch (err) {
             console.error("Error adding comment:", err);
             alert('Error adding comment');
@@ -32,7 +33,7 @@ function Comment(){
             .then(response => {
                 console.log("Post data:", response.data); 
                 setPosts(response.data); 
-                setComments(response.data.comments || []);
+                setComments(response.data.comments);
             })
             .catch(error => {
                 alert("Error fetching posts");
@@ -40,9 +41,10 @@ function Comment(){
     }, [id]); 
 
     const commentElement = comments.map((comment) => {
+        console.log("Comment User:", comment.user[0].username);
         return (
             <div className='commentbox' key={comment._id}>
-                <p className="commentName">{comment.user}</p>
+                <p className="commentName">{comment.user[0].username}</p>
                 <p className="commentText">{comment.content}</p>
             </div>
         )

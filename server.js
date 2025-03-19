@@ -47,11 +47,11 @@ app.get('/api/posts/:id', async (req, res) => {
 });
 
 app.post('/api/posts/:id/comments', (req, res) => {
-    const { userId, content } = req.body;
+    const { user, content } = req.body;
     const newComment = new Comment({
         post: req.params.id,
-        user: userId,
-        content,
+        user: user,
+        content: content,
         date: Date.now()
     });
 
