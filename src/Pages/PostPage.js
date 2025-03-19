@@ -46,7 +46,7 @@ function Box(){
             <div className="box">
                 <div className="form-section">
                     <p className="display-name">Your display name</p>
-                    <div className="input-group">
+                    <div>
                         <input
                             type="text"
                             className="name-input"
