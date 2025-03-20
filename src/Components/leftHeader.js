@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Leftheadonanypage(){
     return (
         <div className="left-Header">
-            <a className="path" id="Home"><b>Name</b></a>
+            <a className="path" id="Home"><b>CUBadLuck</b></a>
             <Link to="/">
             <a className="path" id="image"><img src={logo} alt="toMainMenu"></img></a>
             </Link>

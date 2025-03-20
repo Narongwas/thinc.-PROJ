@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import api from '../Assets/axiosConfig.js';
 import Header from '../Components/header_if_sign.js';
 import { useNavigate } from "react-router-dom";
-
+import complete from '../Assets/5610944.png';
 
 function PostPage() {
     return (
@@ -15,6 +15,7 @@ function PostPage() {
 }
 
 function Box(){
+    const [isOpen, setIsOpen] = useState(false);
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const navigate = useNavigate(); 
@@ -34,12 +35,14 @@ function Box(){
             .then(response => {
                 setTitle('');
                 setBody('');
-                navigate('/Home'); 
+                setIsOpen(true);
             })
             .catch(error => {
+                setIsOpen(false);
                 alert("Error!");
             });
     };    
+
 
     return (
         <div className="full-screen-page">
@@ -74,6 +77,17 @@ function Box(){
                     </div>
                 </div>
             </div>
+            {isOpen ? (
+                <div className="popup-overlay">
+                    <div className="popup-content">
+                        <img className='successimg' src={complete}></img>
+                        <h2 className='success'>Success</h2>
+                            <button className="close-btn" onClick={() => {setIsOpen(false);navigate('/Home');}}>
+                                Continue
+                            </button>
+                    </div>
+                </div>
+            ) : null}
         </div>
     );
 }
