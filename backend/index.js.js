@@ -1,7 +1,7 @@
 const express = require('express');
-const Post = require('./src/Databases/post_db');
-const Comment = require('./src/Databases/comment_db');
-const User = require('./src/Databases/users_db');
+const Post = require('./Databases/post_db');
+const Comment = require('./Databases/comment_db');
+const User = require('./Databases/users_db');
 const cors = require('cors'); 
 
 const app = express();
