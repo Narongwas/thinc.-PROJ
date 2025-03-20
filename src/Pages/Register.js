@@ -4,6 +4,7 @@ import api from '../Assets/axiosConfig.js';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
+console.log("API Object:", api);
 function RegisterPage() {
     return (
         <div className="registerpage">
